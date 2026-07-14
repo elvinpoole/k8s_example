@@ -1,0 +1,18 @@
+# Default configuration — override with environment-specific values files
+# (e.g. values-local.yaml for Kind).
+
+global:
+  # Image configuration (mirrors FASTDB's global image settings)
+  imageRegistry: ""
+  imageTag: "latest"
+  imagePullPolicy: Always
+
+# hello-world Job
+job:
+  enabled: true
+  name: hello-world
+  backoffLimit: 1
+  restartPolicy: Never
+  image:
+    repository: hello-world
+    tag: "" # Falls back to global.imageTag when empty

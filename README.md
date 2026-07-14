@@ -14,7 +14,10 @@ k8s_example/
 ├── tests/
 ├── docs/
 ├── k8s/
-│   └── job.yaml          # Kubernetes Job manifest
+│   └── job.yaml          # Plain Kubernetes Job manifest
+├── helm/
+│   ├── HELM_HOWTO.md     # Helm guide (FASTDB-style layout)
+│   └── hello-world/      # Educational Helm chart
 ├── Dockerfile
 └── pyproject.toml
 ```
@@ -52,3 +55,21 @@ kind delete cluster --name k8s-example
 ```
 
 Expected log output: `Hello, world!`
+
+## Run with Helm (kind)
+
+Same image and Job as above, packaged like FASTDB (`values.yaml` + `values-local.yaml` + templates). Full walkthrough: [helm/HELM_HOWTO.md](helm/HELM_HOWTO.md).
+
+Prerequisites: also install [Helm](https://helm.sh/docs/intro/install/).
+
+```bash
+kind create cluster --name k8s-example   # if needed
+docker build -t hello-world:local .
+kind load docker-image hello-world:local --name k8s-example
+
+helm install hello-world ./helm/hello-world -f ./helm/hello-world/values-local.yaml
+kubectl wait --for=condition=complete job/hello-world --timeout=60s
+kubectl logs job/hello-world
+
+helm uninstall hello-world
+```

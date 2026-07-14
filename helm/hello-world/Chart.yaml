@@ -1,0 +1,12 @@
+apiVersion: v2
+name: hello-world
+description: Educational Helm chart for the hello-world Kubernetes Job
+type: application
+version: 0.1.0
+appVersion: "0.0.0"
+keywords:
+  - kubernetes
+  - example
+  - educational
+maintainers:
+  - name: Jack Elvin-Poole
