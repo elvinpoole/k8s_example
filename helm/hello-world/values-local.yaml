@@ -1,0 +1,15 @@
+# Local (Kind) environment values
+# Usage: helm install hello-world ./helm/hello-world -f ./helm/hello-world/values-local.yaml
+
+global:
+  # Images built locally and loaded into Kind via `kind load`.
+  # imagePullPolicy: Never means Kubernetes uses the node-local image only.
+  imageRegistry: ""
+  imageTag: "local"
+  imagePullPolicy: Never
+
+job:
+  enabled: true
+  image:
+    repository: hello-world
+    tag: "local"
