@@ -1,22 +1,28 @@
-# K8s_example: An example of how to run python code with kubernetes
+# k8s_example
 
-using teh candiamazing template
+Example of running Python code with Kubernetes. Based on the candiamazing template.
 
-```text
+## Layout
+
+```
 k8s_example/
-├── src/helloworld/      #  The Actual Source Code
-│   ├── __init__.py        #   - Exposes the API
-│   ├── cli.py             #   - Command Line Interface entry point
-│   ├── core.py            #   - Classes & State (The "OO" layer)
-│   └── utils.py           #   - Math & Physics (The functional layer)
-│
-├── tests/                 #  Unit Tests
+├── src/hello_world/
+│   ├── __init__.py
+│   ├── cli.py
+│   ├── core.py
+│   └── test.py
+├── tests/
 │   ├── test_cli.py
-│   └── test_core.py
-|
-├── docs/                  #  Documentation website
-│
-├── pyproject.toml         #  Build Configuration & Metadata
-└── README.md              #  Brief Documentation
+│   ├── test_core.py
+│   └── test_test.py
+├── docs/
+└── pyproject.toml
+```
 
+## Usage
+
+```bash
+pip install -e ".[dev]"
+python src/hello_world/cli.py
+pytest
 ```

@@ -1,21 +1,17 @@
-# Installation Guide
-
-## Primary install
-
-Most users can just do:
+# Installation
 
 ```bash
-pip install candiamazing
+pip install -e ".[dev]"
 ```
-
-Then to check everything worked, start a python interpreter and try:
 
 ```python
-import candiamazing as ca
-print(ca.__version__)
-ca.test()
+from hello_world import HelloWorld
+
+HelloWorld().say_hello()
 ```
 
-## Developer install
+CLI:
 
-See the [contributing guide](contributing.md) for detailed instructions!
+```bash
+python src/hello_world/cli.py
+```
