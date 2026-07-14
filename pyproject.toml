@@ -18,14 +18,14 @@ keywords = [
         "kubernetes",
         "python",
 ]
-classifiers=[ 
+classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3"
 ]
-requires-python = ">=3.11" 
+requires-python = ">=3.11"
 dependencies=[
     "numpy>=2.3.5",
 ]
@@ -41,7 +41,8 @@ dev = [
     "pytest>=8.0,<9",
     "ipywidgets",
     "matplotlib",
-    "mypy"
+    "mypy",
+    "pre-commit",
 ]
 
 [project.scripts]
