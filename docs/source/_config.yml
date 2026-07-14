@@ -82,7 +82,7 @@ launch_buttons:
   deepnote_url              : "" # The URL of Deepnote (https://deepnote.com)
 
 repository:
-  url                       : https://github.com/ConnorStoneAstro/candiamazing  # The URL to your book's repository
+  url                       : https://github.com/elvinpoole/k8s_example
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 
