@@ -11,13 +11,13 @@ or, after installing the package:
 """
 
 import argparse
+
 from hello_world import core
+
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line argument parser."""
-    return argparse.ArgumentParser(
-        description="A minimal Hello World CLI."
-    )
+    return argparse.ArgumentParser(description="A minimal Hello World CLI.")
 
 
 def main(argv: list[str] | None = None) -> int:
