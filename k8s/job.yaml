@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: hello-world
+          image: hello-world:local
+          # Use the image already loaded into the kind cluster (do not pull from a registry)
+          imagePullPolicy: Never
