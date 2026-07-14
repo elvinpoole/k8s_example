@@ -91,4 +91,4 @@ convention = "numpy"
 [tool.mypy]
 packages = ["hello_world"]
 ignore_missing_imports = true
-strict = false
+strict = true

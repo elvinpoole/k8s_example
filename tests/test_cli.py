@@ -5,7 +5,7 @@ import pytest
 from hello_world.cli import main
 
 
-def test_cli_hello_world(capsys):
+def test_cli_hello_world(capsys: pytest.CaptureFixture[str]) -> None:
     """The CLI should print 'Hello, world!'."""
     main([])
 
@@ -14,7 +14,7 @@ def test_cli_hello_world(capsys):
     assert captured.out == "Hello, world!\n"
 
 
-def test_cli_help(capsys):
+def test_cli_help(capsys: pytest.CaptureFixture[str]) -> None:
     """The help flag should print the usage message."""
     with pytest.raises(SystemExit) as excinfo:
         main(["--help"])
