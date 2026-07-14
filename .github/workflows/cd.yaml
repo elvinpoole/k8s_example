@@ -19,6 +19,8 @@ concurrency:
 
 env:
   FORCE_COLOR: 3
+  DISTRIBUTION_NAME: "hello-world"
+  PACKAGE_NAME: "hello_world"
 
 jobs:
   dist:
@@ -51,7 +53,7 @@ jobs:
       - uses: actions/setup-python@v5
         name: Install Python
         with:
-          python-version: "3.10"
+          python-version: "3.11"
       - uses: actions/download-artifact@v5
         with:
           name: artifact
@@ -73,15 +75,15 @@ jobs:
 
           echo "=== Testing wheel file ==="
           # Install wheel to get dependencies and check import
-          python -m pip install --extra-index-url https://test.pypi.org/simple --upgrade --pre candiamazing
-          python -c "import candiamazing; print(candiamazing.__version__); candiamazing.test()"
+          python -m pip install --extra-index-url https://test.pypi.org/simple --upgrade --pre ${{ env.DISTRIBUTION_NAME }}
+          python -c "import ${{ env.PACKAGE_NAME }} as pkg; print(pkg.__version__); pkg.test()"
           echo "=== Done testing wheel file ==="
 
           echo "=== Testing source tar file ==="
           # Install tar gz and check import
-          python -m pip uninstall --yes candiamazing
-          python -m pip install --extra-index-url https://test.pypi.org/simple --upgrade --pre --no-binary=:all: candiamazing
-          python -c "import candiamazing; print(candiamazing.__version__); candiamazing.test()"
+          python -m pip uninstall --yes ${{ env.DISTRIBUTION_NAME }}
+          python -m pip install --extra-index-url https://test.pypi.org/simple --upgrade --pre --no-binary=:all: ${{ env.DISTRIBUTION_NAME }}
+          python -c "import ${{ env.PACKAGE_NAME }} as pkg; print(pkg.__version__); pkg.test()"
           echo "=== Done testing source tar file ==="
 
   publish:

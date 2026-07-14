@@ -7,7 +7,7 @@ from hello_world.cli import main
 
 def test_cli_hello_world(capsys):
     """The CLI should print 'Hello, world!'."""
-    main()
+    main([])
 
     captured = capsys.readouterr()
 
