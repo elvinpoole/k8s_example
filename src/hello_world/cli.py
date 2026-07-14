@@ -25,7 +25,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     parser.parse_args(argv)  # Parse arguments (there aren't any yet)
 
-    core.HelloWorld.say_hello()
+    core.HelloWorld().say_hello()
 
     return 0
 
