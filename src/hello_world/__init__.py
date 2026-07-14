@@ -11,6 +11,7 @@ __author__ = "Jack Elvin-Poole"
 # List packages here to explicitly define the public API
 __all__ = (
     "HelloWorld",
+    "test",
     "__version__",
     "__author__",
 )

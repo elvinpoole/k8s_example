@@ -11,7 +11,9 @@ or, after installing the package:
 """
 
 import argparse
+
 from hello_world import core
+
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line argument parser."""

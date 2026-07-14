@@ -8,7 +8,6 @@ test.py
 a smoke test
 """
 
-import numpy as np
 
 from .core import HelloWorld
 
