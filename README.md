@@ -1,6 +1,12 @@
 # k8s_example
 
-Example of running Python code with Kubernetes. Based on the candiamazing template.
+Example of running Python code with Kubernetes.
+
+`kubernetes` (k8s) - system for automating deployment of containers
+
+`kind` - kubernetes in docker - runs docker containers that act like kubernetes clusters. useful if you want to test kubernetes jobs on your local machine without having to install anything complicated 
+
+`helm` - package manager for kubernetes - when you have too many kubernetes yaml files to keep track of use helm
 
 ## Layout
 
@@ -16,7 +22,7 @@ k8s_example/
 ├── k8s/
 │   └── job.yaml          # Plain Kubernetes Job manifest
 ├── helm/
-│   ├── HELM_HOWTO.md     # Helm guide (FASTDB-style layout)
+│   ├── HELM_HOWTO.md     # Helm guide
 │   └── hello-world/      # Educational Helm chart
 ├── Dockerfile
 └── pyproject.toml
