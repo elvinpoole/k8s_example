@@ -31,9 +31,9 @@ k8s_example/
 ## Usage
 
 ```bash
-pip install -e ".[dev]"
-python src/hello_world/cli.py
-pytest
+pip install -e ".[dev]"   # install app
+hello-world               # cli for app that just prints hello world
+pytest                    # run the tests
 ```
 
 ## Run with Kubernetes (kind)
