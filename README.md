@@ -68,14 +68,24 @@ Same image and Job as above, packaged like FASTDB (`values.yaml` + `values-local
 
 Prerequisites: also install [Helm](https://helm.sh/docs/intro/install/).
 
+Note steps 1, 2 and 4 are identicle to the k8s example above
+
 ```bash
+# 1. Create a local cluster (once)
 kind create cluster --name k8s-example   # if needed
+
+# 2. Build the image and load it into kind
 docker build -t hello-world:local .
 kind load docker-image hello-world:local --name k8s-example
 
+# 3. Run the Job
 helm install hello-world ./helm/hello-world -f ./helm/hello-world/values-local.yaml
+
+# 4. Wait for completion and read the logs
 kubectl wait --for=condition=complete job/hello-world --timeout=60s
 kubectl logs job/hello-world
 
+# 5. uninstall the app or delete the cluster
 helm uninstall hello-world
+kind delete cluster --name k8s-example
 ```
