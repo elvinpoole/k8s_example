@@ -1,4 +1,12 @@
 {{/*
+This file defines reusable helpers for the Helm chart. Each define block is a
+named template, similar to a function, that other templates can call with "include"
+to fill in parts of the Kubernetes YAML, such as names, labels, and image references.
+Helm evaluates these helpers when rendering the chart; they do not run inside
+the containers. This file does not create a Kubernetes resource on its own.
+*/}}
+
+{{/*
 Expand the name of the chart.
 */}}
 {{- define "hello-world.name" -}}

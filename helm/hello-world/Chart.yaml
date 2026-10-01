@@ -1,9 +1,27 @@
-apiVersion: v2
-name: hello-world
+# This file contains metadata about the helm package
+# In this simple example it just provide metadata, but it could contain
+# infomation on dependancies between charts, or include variables that are
+# used by the k8s yaml files
+
+# This is the helm version being used
+apiVersion: v2 
+
+# Name of the "chart", this does not have to be the name as the "release" 
+# which you set when you run the helm command
+name: hello-world 
+
 description: Educational Helm chart for the hello-world Kubernetes Job
+
+# This chart describes an application, alternative is "library" whic is 
+# for helpers for other charts 
 type: application
+
+# chart version
 version: 0.1.0
+
 appVersion: "0.0.0"
+
+
 keywords:
   - kubernetes
   - example

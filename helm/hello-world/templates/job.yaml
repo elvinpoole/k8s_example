@@ -1,3 +1,6 @@
+# This is the helm equivalent of the k8s/job.yaml file
+# everything in {{ }} are variables that can be set in the other files
+
 {{- if .Values.job.enabled }}
 apiVersion: batch/v1
 kind: Job

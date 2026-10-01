@@ -1,14 +1,28 @@
 apiVersion: batch/v1
-kind: Job
+
+# kind: Job means we run the code until it completes
+# Alternatives include:
+# CronJob - runs code on a schedule
+# Deployment - continuously running service
+kind: Job 
+
+# This is the name of the k8s job
+# you can later refer to this job with the kubectl command
+# with the label job/my-hello-world-k8s-job
 metadata:
-  name: hello-world
+  name: my-hello-world-job
+
 spec:
+  # allow one retry after failure
   backoffLimit: 1
+
   template:
     spec:
+      # If a container *exits*, dont restart it
       restartPolicy: Never
-      containers:
-        - name: hello-world
-          image: hello-world:local
-          # Use the image already loaded into the kind cluster (do not pull from a registry)
-          imagePullPolicy: Never
+
+      # You can have multiple containers in a pod, here we have just one
+      containers: 
+        - name: my-hello-world-container # name can be anything
+          image: hello-world:local # image name must match image you want to run 
+          imagePullPolicy: Never # Use the image already loaded into the kind cluster (do not pull from a registry)
