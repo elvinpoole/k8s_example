@@ -52,8 +52,8 @@ kind load docker-image hello-world:local --name k8s-example
 kubectl apply -f k8s/job.yaml
 
 # 4. Wait for completion and read the logs
-kubectl wait --for=condition=complete job/hello-world --timeout=60s
-kubectl logs job/hello-world
+kubectl wait --for=condition=complete job/my-hello-world-job --timeout=60s
+kubectl logs job/my-hello-world-job  
 
 # 5. Clean up the Job and delete the cluster
 kubectl delete -f k8s/job.yaml
