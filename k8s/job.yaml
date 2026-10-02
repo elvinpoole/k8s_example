@@ -8,9 +8,9 @@ kind: Job
 
 # This is the name of the k8s job
 # you can later refer to this job with the kubectl command
-# with the label job/my-hello-world-k8s-job
+# with the label job/my-hello-world-job-k8s
 metadata:
-  name: my-hello-world-job
+  name: my-hello-world-job-k8s
 
 spec:
   # allow one retry after failure

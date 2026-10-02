@@ -55,8 +55,8 @@ kind load docker-image hello-world:local --name k8s-example
 helm install hello-world ./helm/hello-world -f ./helm/hello-world/values-local.yaml
 
 # 4. Wait and read logs
-kubectl wait --for=condition=complete job/hello-world --timeout=60s
-kubectl logs job/hello-world
+kubectl wait --for=condition=complete job/my-hello-world-job-helm --timeout=60s
+kubectl logs job/my-hello-world-job-helm
 
 # 5. Clean up the release (or delete the cluster)
 helm uninstall hello-world

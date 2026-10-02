@@ -10,7 +10,7 @@ global:
 # hello-world Job
 job:
   enabled: true
-  name: hello-world
+  name: my-hello-world-job-helm
   backoffLimit: 1
   restartPolicy: Never
   image:
