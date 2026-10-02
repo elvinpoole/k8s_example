@@ -1,5 +1,7 @@
-# This is the helm equivalent of the k8s/job.yaml file
-# everything in {{ }} are variables that can be set in the other files
+{{/*
+This is the Helm equivalent of the k8s/job.yaml file.
+Expressions inside double braces insert values or run template logic and helpers.
+*/}}
 
 {{- if .Values.job.enabled }}
 apiVersion: batch/v1
